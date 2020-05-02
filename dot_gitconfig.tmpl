@@ -1,0 +1,10 @@
+[user]
+	signingkey = {{ (bitwarden "item" "gpg_signin_key").notes }}
+	name = Simon Ganon
+	email = simon@blueboard.io
+[commit]
+	gpgsign = true
+[url "ssh://git@git.blueboard.io/"]
+	insteadOf = https://git.blueboard.io/
+[pull]
+	rebase = true
