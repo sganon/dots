@@ -1,4 +1,8 @@
-export PATH=$PATH:$HOME/go/bin
+# Go setup
+export GOPATH=~/go
+export GO111MODULE=on
+
+export PATH=$PATH:$HOME$GOPATH/bin
 
 alias vim="nvim"
 alias bbvault='eval $(~/.config/secrets/bb_vault.sh set)'
