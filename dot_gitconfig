@@ -1,5 +1,5 @@
 [user]
-	signingkey = {{ (bitwarden "item" "gpg_signin_key").notes }}
+	signingkey = F62A20FAFBAC72A2
 	name = Simon Ganon
 	email = simon@blueboard.io
 [commit]
