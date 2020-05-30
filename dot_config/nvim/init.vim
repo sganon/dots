@@ -7,12 +7,10 @@ endif
 call plug#begin('~/.local/share/nvim/site/plugged')
     Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
-    Plug 'ayu-theme/ayu-vim'
+    Plug 'kyoz/purify', { 'rtp': 'vim' }
 call plug#end()
 
-set termguicolors
-let ayucolor="dark"
-colorscheme ayu
+colorscheme purify
 
 source ~/.config/nvim/editor_config.vim
 source ~/.config/nvim/coc_config.vim
