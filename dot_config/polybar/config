@@ -1,0 +1,125 @@
+; # vim: set syntax=dosini:
+include-file = ~/.config/polybar/colors.ini
+include-file = ~/.config/polybar/layout.ini
+
+[bar/top]
+width=100%
+height=2.5%
+padding=2
+override-redirect = false
+wm-restack = bspwm
+
+background = ${colors.bg}
+
+font-0 = "UbuntuMono Nerd Font Mono:size=13"
+font-1 = "UbuntuMono Nerd Font Mono:size=26;4"
+font-2 = "UbuntuMono Nerd Font Mono:size=32;6"
+
+modules-left = bspwm
+modules-center = date
+modules-right = network-icon network cpu memory battery
+
+[module/date]
+type = internal/date
+interval = 30.0
+date = %a %e %b %H:%M
+
+[module/battery]
+type = internal/battery
+full-at = 99
+battery = BAT0
+adapter = AC
+poll-interval = 5
+format-full = <label-full> <bar-capacity>
+label-full = BAT  %percentage%%
+format-charging = <label-charging> <bar-capacity>
+label-charging = BAT  %percentage%%
+format-discharging = <label-discharging> <bar-capacity>
+label-discharging = BAT  %percentage%%
+bar-capacity-indicator =
+bar-capacity-width = 10
+bar-capacity-foreground-0 = ${colors.green}
+bar-capacity-fill = 
+bar-capacity-empty = 
+bar-capacity-empty-foreground = ${colors.fg-dimmed}
+
+
+[module/network]
+type = custom/script
+exec = ~/.config/polybar/check_network.sh ssid
+label-padding-right = ${layout.outer-padding}
+tail = true
+interval = 5
+click-left = networkmanager_dmenu &
+click-middle = networkmanager_dmenu &
+click-right = networkmanager_dmenu &
+
+[module/network-icon]
+type = custom/script
+exec = ~/.config/polybar/check_network.sh icon
+label-padding-right = ${layout.inter-padding}
+label-font = 2
+tail = true
+interval = 5
+
+
+[module/bspwm]
+type = internal/bspwm
+pin-workspaces = true
+inline-mode = false
+enable-click = false
+enable-scroll = false
+reverse-scroll = false
+ws-icon-0 = code;
+ws-icon-1 = web;
+ws-icon-2 = office;
+ws-icon-3 = messaging;
+ws-icon-default = 
+
+label-focused = %icon%
+label-focused-font = 3
+label-focused-padding = ${layout.inter-padding}
+label-focused-foreground = ${colors.blue}
+
+label-occupied = %icon%
+label-occupied-font = 2
+label-occupied-padding = ${layout.inter-padding}
+
+label-urgent = %icon%
+label-urgent-font = 3
+label-urgent-padding = ${layout.inter-padding}
+label-urgent-foreground = ${colors.warning}
+
+label-empty = 
+
+[module/memory]
+type = internal/memory
+interval = 1
+format = <label> <bar-used>
+label = RAM %percentage_used%%
+format-padding-right = ${layout.outer-padding}
+bar-used-indicator =
+bar-used-width = 10
+bar-used-foreground-0 = ${colors.green}
+bar-used-foreground-1 = ${colors.dark-green}
+bar-used-foreground-2 = ${colors.orange}
+bar-used-foreground-3 = ${colors.red}
+bar-used-fill = 
+bar-used-empty = 
+bar-used-empty-foreground = ${colors.fg-dimmed}
+
+[module/cpu]
+type = internal/cpu
+interval = 1
+format = <label> <bar-load>
+label = CPU %percentage%%
+bar-padding-right = ${layout.outer-padding}
+bar-load-indicator =
+bar-load-width = 10
+bar-load-foreground-0 = ${colors.green}
+bar-load-foreground-1 = ${colors.dark-green}
+bar-load-foreground-2 = ${colors.orange}
+bar-load-foreground-3 = ${colors.red}
+bar-load-fill = 
+bar-load-empty = 
+bar-load-empty-foreground = ${colors.fg-dimmed}
