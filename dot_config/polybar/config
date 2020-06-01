@@ -17,7 +17,7 @@ font-2 = "UbuntuMono Nerd Font Mono:size=32;6"
 
 modules-left = bspwm
 modules-center = date
-modules-right = network-icon network cpu memory battery
+modules-right = network-icon network pulseaudio cpu memory battery
 
 [module/date]
 type = internal/date
@@ -30,14 +30,17 @@ full-at = 99
 battery = BAT0
 adapter = AC
 poll-interval = 5
+label-full-padding-left = ${layout.outer-padding}
 format-full = <label-full> <bar-capacity>
 label-full = BAT  %percentage%%
 format-charging = <label-charging> <bar-capacity>
 label-charging = BAT  %percentage%%
+label-charging-padding-left = ${layout.outer-padding}
 format-discharging = <label-discharging> <bar-capacity>
 label-discharging = BAT  %percentage%%
+label-discharging-padding-left = ${layout.outer-padding}
 bar-capacity-indicator =
-bar-capacity-width = 10
+bar-capacity-width = 7
 bar-capacity-foreground-0 = ${colors.green}
 bar-capacity-fill = 
 bar-capacity-empty = 
@@ -73,7 +76,8 @@ reverse-scroll = false
 ws-icon-0 = code;
 ws-icon-1 = web;
 ws-icon-2 = office;
-ws-icon-3 = messaging;
+ws-icon-3 = discord;ﭮ
+ws-icon-4 = slack;
 ws-icon-default = 
 
 label-focused = %icon%
@@ -92,14 +96,34 @@ label-urgent-foreground = ${colors.warning}
 
 label-empty = 
 
+[module/pulseaudio]
+type = internal/pulseaudio
+sink =
+use-ui-max = false
+interval = 5
+label-volume = VOL %percentage%%
+label-volume-padding-left = ${layout.outer-padding}
+label-muted = VOL %percentage%%
+label-muted-padding-left = ${layout.outer-padding}
+format-volume = <label-volume> <bar-volume>
+format-muted = <label-muted> <bar-volume>
+format-volume-padding-right = ${layout.outer-padding}
+format-muted-padding-right = ${layout.outer-padding}
+bar-volume-indicator =
+bar-volume-width = 7
+bar-volume-foreground-0 = ${colors.blue}
+bar-volume-fill = 
+bar-volume-empty = 
+bar-volume-empty-foreground = ${colors.fg-dimmed}
+
 [module/memory]
 type = internal/memory
 interval = 1
 format = <label> <bar-used>
 label = RAM %percentage_used%%
-format-padding-right = ${layout.outer-padding}
+label-padding-left = ${layout.outer-padding}
 bar-used-indicator =
-bar-used-width = 10
+bar-used-width = 7
 bar-used-foreground-0 = ${colors.green}
 bar-used-foreground-1 = ${colors.dark-green}
 bar-used-foreground-2 = ${colors.orange}
@@ -113,9 +137,9 @@ type = internal/cpu
 interval = 1
 format = <label> <bar-load>
 label = CPU %percentage%%
-bar-padding-right = ${layout.outer-padding}
+label-padding-left = ${layout.outer-padding}
 bar-load-indicator =
-bar-load-width = 10
+bar-load-width = 7
 bar-load-foreground-0 = ${colors.green}
 bar-load-foreground-1 = ${colors.dark-green}
 bar-load-foreground-2 = ${colors.orange}
