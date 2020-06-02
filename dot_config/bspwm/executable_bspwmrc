@@ -4,7 +4,7 @@ setxkbmap -option grp:alt_shift_toggle fr,us &
 sxhkd &
 dunst &
 
-bspc monitor -d code web office 4 5 6 7 8 discord slack
+bspc monitor -d code web mail calendar 5 6 7 8 discord slack
 
 bspc config border_width         2
 bspc config window_gap          12

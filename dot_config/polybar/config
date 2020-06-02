@@ -75,9 +75,10 @@ enable-scroll = false
 reverse-scroll = false
 ws-icon-0 = code;
 ws-icon-1 = web;
-ws-icon-2 = office;
-ws-icon-3 = discord;ﭮ
-ws-icon-4 = slack;
+ws-icon-2 = mail;
+ws-icon-3 = calendar;
+ws-icon-4 = discord;ﭮ
+ws-icon-5 = slack;
 ws-icon-default = 
 
 label-focused = %icon%
