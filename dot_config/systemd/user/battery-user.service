@@ -1,0 +1,5 @@
+[Unit]
+Description=battery-user
+
+[Service]
+ExecStart=/home/sganon/.config/systemd/scripts/check-battery.sh
