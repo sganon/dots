@@ -162,7 +162,7 @@
     icon_position = left
 
     # Scale larger icons down to this size, set to 0 to disable
-    max_icon_size = 256
+    max_icon_size = 128
 
     # Paths to default icons.
     icon_path = /home/sganon/.local/share/icons/Qogir/:/usr/share/icons/gnome/16x16/status/:/usr/share/icons/gnome/16x16/devices/
@@ -274,21 +274,21 @@
 [urgency_low]
     # IMPORTANT: colors have to be defined in quotation marks.
     # Otherwise the "#" and following would be interpreted as a comment.
-    background = "#313440"
+    background = "#3134407D"
     foreground = "#888888"
     timeout = 10
     # Icon for notifications with low urgency, uncomment to enable
     #icon = /path/to/icon
 
 [urgency_normal]
-    background = "#313440"
+    background = "#3134407D"
     foreground = "#ffffff"
     timeout = 10
     # Icon for notifications with normal urgency, uncomment to enable
     #icon = /path/to/icon
 
 [urgency_critical]
-    background = "#313440"
+    background = "#3134407D"
     foreground = "#ffffff"
     frame_color = "#ff0000"
     timeout = 0
