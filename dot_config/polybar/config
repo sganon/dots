@@ -9,6 +9,8 @@ padding=2
 override-redirect = false
 wm-restack = bspwm
 
+monitor = ${env:MONITOR:eDP1}
+
 background = ${colors.bg}
 
 font-0 = "UbuntuMono Nerd Font Mono:size=13"

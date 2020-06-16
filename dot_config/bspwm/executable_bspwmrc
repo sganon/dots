@@ -1,6 +1,6 @@
-#! /bin/sh
+#!/bin/sh
 
-setxkbmap -option grp:alt_shift_toggle fr,us &
+setxkbmap -device 18 -layout fr
 sxhkd &
 dunst &
 
@@ -19,6 +19,10 @@ PRIMARY_MONITOR=`xrandr -q | grep " connected primary" | awk '{ print$1 }'`
 PROFILE=mobile
 if [[ "$PRIMARY_MONITOR" == "HDMI1" ]]; then
     PROFILE=docked
+fi
+HDMI_CONNECTED=`xrandr -q | grep "HDMI1 connected"`
+if [[ "$PRIMARY_MONITOR" == "eDP1" && "$HDMI_CONNECTED" -ne "" ]]; then
+    PROFILE=work
 fi
 
 AUTORANDR_CURRENT_PROFILE=$PROFILE ~/.config/autorandr/postswitch.d/bspwm
