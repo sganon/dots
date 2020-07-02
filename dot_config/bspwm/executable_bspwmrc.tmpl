@@ -16,7 +16,7 @@ bspc config borderless_monocle   true
 bspc config gapless_monocle      true
 
 bspc config top_monocle_padding  -31
-
+{{- if eq .chezmoi.hostname "thinkpad" }}
 PRIMARY_MONITOR=`xrandr -q | grep " connected primary" | awk '{ print$1 }'`
 PROFILE=mobile
 if [[ "$PRIMARY_MONITOR" == "HDMI1" ]]; then
@@ -26,6 +26,11 @@ HDMI_CONNECTED=`xrandr -q | grep "HDMI1 connected"`
 if [[ "$PRIMARY_MONITOR" == "eDP1" && "$HDMI_CONNECTED" -ne "" ]]; then
     PROFILE=work
 fi
+{{- end}}
+
+{{- if eq .chezmoi.hostname "sganon-desktop"}}
+PROFILE=default
+{{- end}}
 
 AUTORANDR_CURRENT_PROFILE=$PROFILE ~/.config/autorandr/postswitch.d/bspwm
 autorandr --change
