@@ -13,10 +13,16 @@ monitor = ${env:MONITOR:eDP1}
 
 background = ${colors.bg}
 
+{{- if eq .chezmoi.hostname "thinkpad" }}
 font-0 = "UbuntuMono Nerd Font Mono:size=14;2"
 font-1 = "UbuntuMono Nerd Font Mono:size=18;2"
 font-2 = "UbuntuMono Nerd Font Mono:size=22;3"
-
+{{- end}}
+{{- if eq .chezmoi.hostname "sganon-desktop"}}
+font-0 = "UbuntuMono Nerd Font Mono:size=10"
+font-1 = "UbuntuMono Nerd Font Mono:size=14;2"
+font-2 = "UbuntuMono Nerd Font Mono:size=18;3"
+{{- end}}
 modules-left = bspwm
 modules-center = date
 modules-right = network-icon network pulseaudio cpu memory battery
