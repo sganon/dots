@@ -43,9 +43,7 @@ EOF
 {{- if eq .chezmoi.hostname "thinkpad" }}
 if [[ "$AUTORANDR_CURRENT_PROFILE" == "mobile" ]]; then
     bspc monitor eDP1 -d code web mail calendar 5 6 7 8 discord slack
-elif [[ "$AUTORANDR_CURRENT_PROFILE" == "docked" ]]; then
-    bspc monitor HDMI1 -d code web mail calendar 5 6 7 8 discord slack
-elif [[ "$AUTORANDR_CURRENT_PROFILE" == "work" ]]; then
+else
     bspc monitor HDMI1 -d code web 5 6 7 8
     bspc monitor eDP1 -d mail calendar discord slack
 fi

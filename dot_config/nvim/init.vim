@@ -8,6 +8,7 @@ call plug#begin('~/.local/share/nvim/site/plugged')
     Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
     Plug 'kyoz/purify', { 'rtp': 'vim' }
+    Plug 'christoomey/vim-tmux-navigator'
 call plug#end()
 
 colorscheme purify
