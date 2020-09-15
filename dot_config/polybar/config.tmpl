@@ -2,9 +2,9 @@
 include-file = ~/.config/polybar/colors.ini
 include-file = ~/.config/polybar/layout.ini
 
-[bar/top]
+[bar/hidpi]
 width=100%
-height=2%
+height=2.3%
 padding=2
 override-redirect = false
 wm-restack = bspwm
@@ -14,23 +14,55 @@ monitor = ${env:MONITOR:eDP1}
 background = ${colors.bg}
 
 {{- if eq .chezmoi.hostname "thinkpad" }}
-font-0 = "UbuntuMono Nerd Font Mono:size=14;2"
-font-1 = "UbuntuMono Nerd Font Mono:size=18;2"
-font-2 = "UbuntuMono Nerd Font Mono:size=22;3"
+font-0 = "FiraMono Nerd Font:size=14;2"
+font-1 = "FiraMono Nerd Font:size=14;2"
+font-2 = "FiraMono Nerd Font:size=18;3"
+font-3 = "FiraMono Nerd Font:style=bold:size=16;2"
 {{- end}}
 {{- if eq .chezmoi.hostname "sganon-desktop"}}
-font-0 = "UbuntuMono Nerd Font Mono:size=10"
-font-1 = "UbuntuMono Nerd Font Mono:size=14;2"
-font-2 = "UbuntuMono Nerd Font Mono:size=18;3"
+font-0 = "FiraMono Nerd Font:size=14;2"
+font-1 = "FiraMono Nerd Font:size=14;2"
+font-2 = "FiraMono Nerd Font:size=18;3"
+font-3 = "FiraMono Nerd Font:style=bold:size=14;2"
 {{- end}}
 modules-left = bspwm
-modules-center = date
-modules-right = network-icon network pulseaudio cpu memory battery
+modules-right = network-icon network filesystem pulseaudio cpu memory battery date
+
+[bar/lodpi]
+width=100%
+height=1.9%
+padding=2
+override-redirect = false
+wm-restack = bspwm
+
+monitor = ${env:MONITOR:eDP1}
+
+background = ${colors.bg}
+
+{{- if eq .chezmoi.hostname "thinkpad" }}
+font-0 = "FiraMono Nerd Font:size=11;3"
+font-1 = "FiraMono Nerd Font:size=11;3"
+font-2 = "FiraMono Nerd Font:size=14;4"
+font-3 = "FiraMono Nerd Font:style=bold:size=12;3"
+{{- end}}
+{{- if eq .chezmoi.hostname "sganon-desktop"}}
+font-0 = "FiraMono Nerd Font:size=11;2"
+font-1 = "FiraMono Nerd Font:size=11;2"
+font-2 = "FiraMono Nerd Font:size=14;3"
+font-3 = "FiraMono Nerd Font:style=bold:size=12;2"
+{{- end}}
+modules-left = bspwm
+modules-right = network-icon network filesystem pulseaudio cpu memory battery date
+
+
 
 [module/date]
 type = internal/date
-interval = 30.0
-date = %a %e %b %H:%M
+interval = 10.0
+label-font = 4
+label-padding-left = ${layout.outer-padding}
+date = %H:%M
+date-alt = %Y/%m/%d
 
 [module/battery]
 type = internal/battery
@@ -38,26 +70,26 @@ full-at = 99
 battery = BAT0
 adapter = AC
 poll-interval = 5
-label-full-padding-left = ${layout.outer-padding}
-format-full = <label-full> <bar-capacity>
-label-full = BAT  %percentage%%
-format-charging = <label-charging> <bar-capacity>
-label-charging = BAT  %percentage%%
-label-charging-padding-left = ${layout.outer-padding}
-format-discharging = <label-discharging> <bar-capacity>
-label-discharging = BAT  %percentage%%
-label-discharging-padding-left = ${layout.outer-padding}
-bar-capacity-indicator =
-bar-capacity-width = 7
-bar-capacity-foreground-0 = ${colors.green}
-bar-capacity-fill = 
-bar-capacity-empty = 
-bar-capacity-empty-foreground = ${colors.fg-dimmed}
+label-full-font = 4
+format-full = <label-full>
+label-full = %percentage%%
+label-charging-font = 4
+format-charging = <ramp-capacity> <label-charging>
+label-charging = ﮣ %percentage%%
+format-discharging = <ramp-capacity> <label-discharging>
+label-discharging = %percentage%%
+label-discharging-font = 4
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+ramp-capacity-4 = 
 
 
 [module/network]
 type = custom/script
 exec = ~/.config/polybar/check_network.sh ssid
+label-font = 4
 label-padding-right = ${layout.outer-padding}
 tail = true
 interval = 5
@@ -87,7 +119,10 @@ ws-icon-2 = mail;
 ws-icon-3 = calendar;
 ws-icon-4 = spotify;
 ws-icon-5 = slack;
-ws-icon-6 = emacs;
+ws-icon-6 = 3;3
+ws-icon-7 = 4;4
+ws-icon-8 = 5;5
+ws-icon-9 = 6;6
 ws-icon-default = 
 
 label-focused = %icon%
@@ -111,49 +146,44 @@ type = internal/pulseaudio
 sink =
 use-ui-max = false
 interval = 5
-label-volume = VOL %percentage%%
-label-volume-padding-left = ${layout.outer-padding}
-label-muted = VOL %percentage%%
+label-volume-font = 4
+label-volume = %percentage%%
+#label-volume-padding-left = ${layout.outer-padding}
+label-muted-font = 4
+label-muted = %percentage%%
+#label-muted-foreground = ${colors.red}
 label-muted-padding-left = ${layout.outer-padding}
-format-volume = <label-volume> <bar-volume>
-format-muted = <label-muted> <bar-volume>
+format-volume = <ramp-volume> <label-volume>
+format-muted = <ramp-volume> <label-muted>
 format-volume-padding-right = ${layout.outer-padding}
 format-muted-padding-right = ${layout.outer-padding}
-bar-volume-indicator =
-bar-volume-width = 7
-bar-volume-foreground-0 = ${colors.blue}
-bar-volume-fill = 
-bar-volume-empty = 
-bar-volume-empty-foreground = ${colors.fg-dimmed}
+ramp-volume-0 = 
+ramp-volume-1 = 墳
+ramp-volume-2 = 
 
 [module/memory]
 type = internal/memory
 interval = 1
-format = <label> <bar-used>
-label = RAM %percentage_used%%
+format = <label>
+label =  %percentage_used%%
 label-padding-left = ${layout.outer-padding}
-bar-used-indicator =
-bar-used-width = 7
-bar-used-foreground-0 = ${colors.green}
-bar-used-foreground-1 = ${colors.dark-green}
-bar-used-foreground-2 = ${colors.orange}
-bar-used-foreground-3 = ${colors.red}
-bar-used-fill = 
-bar-used-empty = 
-bar-used-empty-foreground = ${colors.fg-dimmed}
+label-padding-right = ${layout.outer-padding}
+label-font = 4
 
 [module/cpu]
 type = internal/cpu
 interval = 1
-format = <label> <bar-load>
-label = CPU %percentage%%
+format = <label>
+label =  %percentage%%
 label-padding-left = ${layout.outer-padding}
-bar-load-indicator =
-bar-load-width = 7
-bar-load-foreground-0 = ${colors.green}
-bar-load-foreground-1 = ${colors.dark-green}
-bar-load-foreground-2 = ${colors.orange}
-bar-load-foreground-3 = ${colors.red}
-bar-load-fill = 
-bar-load-empty = 
-bar-load-empty-foreground = ${colors.fg-dimmed}
+label-font = 4
+
+[module/filesystem]
+type = internal/fs
+mount-0 = /
+interval = 10
+fixed-values = true
+format-mounted = <label-mounted>
+label-mounted =  %percentage_used%%
+label-mounted-font = 4
+label-mounted-padding-right = ${layout.outer-padding}

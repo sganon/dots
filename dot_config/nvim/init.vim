@@ -4,14 +4,19 @@ if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
   autocmd VimEnter * PlugInstall --sync | source $HOME/.config/nvim/init.vim
 endif
 
+
 call plug#begin('~/.local/share/nvim/site/plugged')
     Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
     Plug 'kyoz/purify', { 'rtp': 'vim' }
+    Plug 'chriskempson/base16-vim'
     Plug 'christoomey/vim-tmux-navigator'
+    Plug 'itchyny/lightline.vim'
 call plug#end()
 
-colorscheme purify
+if filereadable(expand("~/.vimrc_background"))
+  source ~/.vimrc_background
+endif
 
 source ~/.config/nvim/editor_config.vim
 source ~/.config/nvim/coc_config.vim

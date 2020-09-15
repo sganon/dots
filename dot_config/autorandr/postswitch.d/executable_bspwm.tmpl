@@ -42,9 +42,9 @@ EOF
 
 {{- if eq .chezmoi.hostname "thinkpad" }}
 if [[ "$AUTORANDR_CURRENT_PROFILE" == "mobile" ]]; then
-    bspc monitor eDP1 -d web emacs term 4 5 6 mail calendar spotify slack
+    bspc monitor eDP1 -d web term 3 4 5 6 mail calendar spotify slack
 else
-    bspc monitor HDMI1 -d web emacs term 4 5 6
+    bspc monitor HDMI1 -d web term 3 4 5 6
     bspc monitor eDP1 -d mail calendar spotify slack
 fi
 {{- end}}
@@ -54,7 +54,23 @@ fi
     bspc monitor DVI-D-0 -d code web mail calendar 5 6 7 8 discord slack
 {{- end}}
 
-feh --bg-fill ~/Pictures/Wallpapers/mercedes_w11_4k.jpg
+window_ids=$(bspc query -N -n .window)
+
+declare -A positions
+positions=( ["Slack"]="slack" ["Spotify"]="spotify" ["firefox"]="web" ["Alacritty"]=term )
+
+for id in $window_ids
+do
+    echo $id
+    class=$(xprop -id $id | grep "WM_CLASS(STRING)" | awk '{print $4}' | tr -d '"')
+    echo $class
+    desktop=${positions["$class"]}
+    echo $desktop
+    bspc node $id -d $desktop;
+done
+
+
+feh --bg-fill ~/Pictures/Wallpapers/miasaky.jpg
 ~/.config/polybar/launch.sh
 
 notify-send "Loaded profile $AUTORANDR_CURRENT_PROFILE"
