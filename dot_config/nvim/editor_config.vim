@@ -25,3 +25,8 @@ vnoremap <leader>P "+P
 
 " Replace All, place cursor on var, \R, new var, enter
 nnoremap <leader>R yiw:%s/\<<C-r>"\>//g<left><left>
+
+silent! nmap <C-p> :NERDTreeToggle<CR>
+silent! map <F3> :NERDTreeFind<CR>
+let g:NERDTreeMapActivateNode="<F3>"
+let g:NERDTreeMapPreview="<F4>"

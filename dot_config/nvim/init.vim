@@ -12,6 +12,8 @@ call plug#begin('~/.local/share/nvim/site/plugged')
     Plug 'chriskempson/base16-vim'
     Plug 'christoomey/vim-tmux-navigator'
     Plug 'itchyny/lightline.vim'
+    Plug 'preservim/nerdtree'
+    Plug 'Xuyuanp/nerdtree-git-plugin'
 call plug#end()
 
 if filereadable(expand("~/.vimrc_background"))
