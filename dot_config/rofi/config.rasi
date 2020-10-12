@@ -1,9 +1,0 @@
-/** Configured For Applets **/
-
-configuration {
-  show-icons:         true;
-  icon-theme:         "Qogir-dark";
-  location: 2;
-  yoffset: 500;
-  xoffset: 0;
-}

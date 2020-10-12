@@ -1,0 +1,56 @@
+configuration {
+    drun-display-format: "{icon} {name}";
+    show-icons: true;
+    icon-theme: "Qogir";
+}
+
+@import "colors.rasi"
+
+* {
+    font: "FantasqueSansMono Nerd Font 18";
+    background-color: rgba(0,0,0,0);
+}
+
+window {
+  transparency: "real";
+  height: 60%;
+  width: 75%;
+  border-radius: 25px;
+  border-color: @accent;
+  border: 3px;
+}
+
+mainbox {
+  children: [ listview ];
+  background-color: rgba(0,0,0,0.5);
+}
+
+listview {
+    columns: 5;
+    padding: 6;
+}
+
+element {
+    text-color: @foreground;
+    padding: 12 12 12 16;
+    orientation: vertical;
+    border-radius: 6px;
+    margin: 5px 10px 0px 10px;
+}
+
+element-icon {
+    size: 120px;
+}
+
+element-text {
+    horizontal-align: 0.5;
+    vertical-align: 0.5;
+}
+
+element selected {
+    background-color: @accent;
+    color: #FFFFFF;
+}
+
+
+/* vim:ft=scss
