@@ -1,13 +1,13 @@
 configuration {
     drun-display-format: "{icon} {name}";
     show-icons: true;
-    icon-theme: "Qogir";
+    icon-theme: "Qogir-dark";
 }
 
 @import "colors.rasi"
 
 * {
-    font: "FantasqueSansMono Nerd Font 18";
+    font: "SauceCodePro Nerd Font Mono 18";
     background-color: rgba(0,0,0,0);
 }
 
@@ -21,8 +21,29 @@ window {
 }
 
 mainbox {
-  children: [ listview ];
+  children: [ inputbar, listview ];
   background-color: rgba(0,0,0,0.5);
+}
+
+inputbar {
+  children: [prompt, entry];
+  padding: 4;
+  margin: 2% 15%;
+  background-color: @background;
+  border: 2px;
+  border-radius: 25px;
+  border-color: @accent;
+}
+
+prompt {
+    text-color: @accent;
+    margin: 0 0 10 20;
+}
+
+entry {
+  font: "SauceCodePro Nerd Font Mono 16";
+  text-color: @foreground;
+  padding: 8 12 8 12;
 }
 
 listview {

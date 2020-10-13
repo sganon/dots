@@ -1,5 +1,7 @@
 * {
     accent: #5FAFFF;
-    background: #000000;
+    background: rgba(0,0,0,0.5);
     foreground: #C0C0C0;
+
+    background-color: @background;
 }
