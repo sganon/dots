@@ -5,6 +5,12 @@ configuration {
 
 @import "colors"
 
+* {
+    font: "FuraCode Nerd Font Mono 18";
+    background-color: rgba(0,0,0,0);
+}
+
+
 window {
     transparency: "real";
     background-color: @background;

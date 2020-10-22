@@ -1,7 +1,7 @@
 @import "colors.rasi"
 
 * {
-    font: "SauceCode Mono Nerd Font 24";
+    font: "FuraCode Nerd Font Monoo 24";
     background-color: rgba(0,0,0,0);
 }
 
