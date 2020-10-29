@@ -23,3 +23,4 @@ endif
 
 source ~/.config/nvim/editor_config.vim
 source ~/.config/nvim/coc_config.vim
+source ~/.config/nvim/vim-go.vim
