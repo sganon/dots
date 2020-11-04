@@ -16,6 +16,7 @@ call plug#begin('~/.local/share/nvim/site/plugged')
     Plug 'Xuyuanp/nerdtree-git-plugin'
     Plug 'sheerun/vim-polyglot'
     Plug 'peitalin/vim-jsx-typescript'
+    Plug 'mattn/emmet-vim'
 call plug#end()
 
 if filereadable(expand("~/.vimrc_background"))
