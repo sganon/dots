@@ -17,7 +17,7 @@ set $menu exec alacritty --dimensions 55 18 --class launcher --command /usr/bin/
 output * bg /home/sganon/Pictures/Wallpapers/ged014.jpg fill
 
 output eDP-1 pos 0 0 res 2560x1440 scale 1.5
-output HDMI-1 pos 2560 0 res 2560x1440
+output HDMI-1 pos 0 1440 res 2560x1440
 
 # lid closing
 set $laptop eDP-1
@@ -208,3 +208,5 @@ exec_always {
     gsettings set $gnome-schema icon-theme 'Qogir-ubuntu-dark'
     gsettings set $gnome-schema cursor-theme 'Qogir-ubuntu-dark'
 }
+
+exec mako
