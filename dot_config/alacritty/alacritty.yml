@@ -174,24 +174,22 @@ font:
 #draw_bold_text_with_bright_colors: false
 
 colors:
-  # COLORSCHEME: base16-atelier-heath.yml
+  # COLORSCHEME: doom_one.yml
   # Default colors
   primary:
-    background: '0x1b181b'
-    foreground: '0xab9bab'
+    background: '0x282c34'
+    foreground: '0xbbc2cf'
 
-  # Colors the cursor will use if `custom_cursor_colors` is true
+  # Normal colors
   normal:
-    black: '0x1b181b'
-    red: '0xca402b'
-    green: '0x918b3b'
-    yellow: '0xbb8a35'
-    blue: '0x516aec'
-    magenta: '0x7b59c0'
-    cyan: '0x159393'
-    white: '0xab9bab'
-
-  # Bright colors
+    black: '0x282c34'
+    red: '0xff6c6b'
+    green: '0x98be65'
+    yellow: '0xecbe7b'
+    blue: '0x51afef'
+    magenta: '0xc678dd'
+    cyan: '0x46d9ff'
+    white: '0xbbc2cf'
   bright:
     black: '0x776977'
     red: '0xa65926'
