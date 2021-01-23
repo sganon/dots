@@ -5,6 +5,7 @@
 	 (go-mode . lsp)
 	 (python-mode . lsp)
 	 (typescript-mode . lsp)
+	 (rust-mode . lsp)
 	 )
   :commands (lsp lsp-deferred)
   :config

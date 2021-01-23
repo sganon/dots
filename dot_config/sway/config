@@ -42,6 +42,19 @@ input "1452:591:SONiX_USB_DEVICE" {
     xkb_options "compose:caps"
 }
 
+input "12136:130:Hoksi_Technology_DURGOD_Taurus_K320" {
+    xkb_layout gb
+    xkb_options "compose:caps"
+}
+
+gaps inner 2
+gaps outer 1
+
+default_border pixel 2
+font pango:monospace 0
+titlebar_border_thickness 0
+titlebar_padding 0
+
 
 ### Key bindings
 #
