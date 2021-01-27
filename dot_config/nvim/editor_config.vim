@@ -32,3 +32,4 @@ let g:NERDTreeMapActivateNode="<F3>"
 let g:NERDTreeMapPreview="<F4>"
 
 hi Normal guibg=NONE ctermbg=NONE
+
