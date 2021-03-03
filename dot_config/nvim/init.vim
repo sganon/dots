@@ -12,9 +12,6 @@ call plug#begin('~/.local/share/nvim/site/plugged')
     Plug 'chriskempson/base16-vim'
     Plug 'christoomey/vim-tmux-navigator'
     Plug 'itchyny/lightline.vim'
-    "Plug 'preservim/nerdtree'
-    "Plug 'Xuyuanp/nerdtree-git-plugin'
-    "Plug 'sheerun/vim-polyglot'
     Plug 'peitalin/vim-jsx-typescript'
     Plug 'mattn/emmet-vim'
     Plug 'NLKNguyen/papercolor-theme'
@@ -31,4 +28,3 @@ colorscheme PaperColor
 
 source ~/.config/nvim/editor_config.vim
 source ~/.config/nvim/coc_config.vim
-source ~/.config/nvim/vim-go.vim
