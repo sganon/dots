@@ -1,3 +1,5 @@
+let g:coc_global_extensions = ['coc-json', 'coc-git', 'coc-tsserver', 'coc-go', 'coc-tslint', 'coc-html']
+
 nmap <leader>rn <Plug>(coc-rename)
 " TextEdit might fail if hidden is not set.
 set hidden

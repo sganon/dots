@@ -13,6 +13,7 @@ call plug#begin('~/.local/share/nvim/site/plugged')
     Plug 'christoomey/vim-tmux-navigator'
     Plug 'itchyny/lightline.vim'
     Plug 'peitalin/vim-jsx-typescript'
+    Plug 'leafgarland/typescript-vim'
     Plug 'mattn/emmet-vim'
     Plug 'NLKNguyen/papercolor-theme'
 call plug#end()
