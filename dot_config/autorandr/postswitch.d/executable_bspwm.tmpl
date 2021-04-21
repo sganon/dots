@@ -50,8 +50,9 @@ fi
 {{- end}}
 
 
-{{- if eq .chezmoi.hostname "sganon-desktop" }}
-    bspc monitor DVI-D-0 -d web term mail calendar 5 6 7 8 discord slack
+{{- if eq .chezmoi.hostname "workstation" }}
+    bspc monitor DP-4 -d web term mail calendar 5 6
+    bspc monitor DVI-D-0 -d 7 8 discord slack
 {{- end}}
 
 window_ids=$(bspc query -N -n .window)

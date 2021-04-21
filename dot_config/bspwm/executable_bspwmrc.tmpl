@@ -29,7 +29,7 @@ if [[ "$PRIMARY_MONITOR" == "eDP1" && "$HDMI_CONNECTED" -ne "" ]]; then
 fi
 {{- end}}
 
-{{- if eq .chezmoi.hostname "sganon-desktop"}}
+{{- if eq .chezmoi.hostname "workstation"}}
 PROFILE=default
 {{- end}}
 

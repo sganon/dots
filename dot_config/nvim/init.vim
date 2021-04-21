@@ -16,6 +16,7 @@ call plug#begin('~/.local/share/nvim/site/plugged')
     Plug 'leafgarland/typescript-vim'
     Plug 'mattn/emmet-vim'
     Plug 'NLKNguyen/papercolor-theme'
+    Plug 'vimsence/vimsence'
 call plug#end()
 
 set t_Co=256   " This is may or may not needed.
