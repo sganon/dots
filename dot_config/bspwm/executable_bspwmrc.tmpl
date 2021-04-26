@@ -1,5 +1,7 @@
 #!/bin/sh
 
+gnome-keyring-daemon --start --components=pkcs11 &
+
 setxkbmap -device 18 -layout fr
 sxhkd &
 dunst &
@@ -17,7 +19,7 @@ bspc config borderless_monocle   true
 bspc config gapless_monocle      true
 
 bspc config top_monocle_padding  -31
-{{- if eq .chezmoi.hostname "thinkpad" }}
+{{- if eq .chezmoi.hostname "laptop" }}
 PRIMARY_MONITOR=`xrandr -q | grep " connected primary" | awk '{ print$1 }'`
 PROFILE=mobile
 if [[ "$PRIMARY_MONITOR" == "HDMI1" ]]; then

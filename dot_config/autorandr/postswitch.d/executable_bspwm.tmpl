@@ -40,12 +40,12 @@ cat > "${XDG_CONFIG_HOME:-$HOME/.config}/fontconfig/conf.d/90-xrandr-sync-dpi.co
 </fontconfig>
 EOF
 
-{{- if eq .chezmoi.hostname "thinkpad" }}
+{{- if eq .chezmoi.hostname "laptop" }}
 if [[ "$AUTORANDR_CURRENT_PROFILE" == "mobile" ]]; then
-    bspc monitor eDP1 -d web term 3 4 5 6 mail calendar spotify slack
+    bspc monitor eDP-1 -d web term 3 4 5 6 mail calendar spotify slack
 else
-    bspc monitor HDMI1 -d web term 3 4 5 6
-    bspc monitor eDP1 -d mail calendar spotify slack
+    bspc monitor HDMI-1 -d web term 3 4 5 6
+    bspc monitor eDP-1 -d mail calendar spotify slack
 fi
 {{- end}}
 
