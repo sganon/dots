@@ -35,7 +35,7 @@ fi
 PROFILE=default
 {{- end}}
 
-AUTORANDR_CURRENT_PROFILE=$PROFILE ~/.config/autorandr/postswitch.d/bspwm
+AUTORANDR_PROFILE_FOLDER=$HOME/.config/autorandr AUTORANDR_CURRENT_PROFILE=$PROFILE ~/.config/autorandr/postswitch.d/bspwm
 autorandr --change
 ~/.config/picom/launch.sh
 ~/.config/polybar/launch.sh

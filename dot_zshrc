@@ -13,4 +13,4 @@ export EDITOR='nvim'
 alias vim="nvim"
 source /usr/share/nvm/init-nvm.sh
 
-export GOPRIVATE=git.blueboard.io
+export GOPRIVATE=git.blueboard.io,git.y2m.io
