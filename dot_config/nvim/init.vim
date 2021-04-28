@@ -17,12 +17,8 @@ call plug#begin('~/.local/share/nvim/site/plugged')
     Plug 'mattn/emmet-vim'
     Plug 'NLKNguyen/papercolor-theme'
     Plug 'vimsence/vimsence'
+    Plug 'ayu-theme/ayu-vim'
 call plug#end()
-
-set t_Co=256   " This is may or may not needed.
-
-set background=dark
-colorscheme PaperColor
 
 "if filereadable(expand("~/.vimrc_background"))
 "  source ~/.vimrc_background
@@ -30,3 +26,5 @@ colorscheme PaperColor
 
 source ~/.config/nvim/editor_config.vim
 source ~/.config/nvim/coc_config.vim
+source ~/.config/nvim/theme.vim
+
