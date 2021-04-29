@@ -28,6 +28,9 @@ XF86AudioMute
 XF86MonBrightness{Up,Down}
     xbacklight -{inc,dec} 10
 
+super + c
+    ~/.config/themes/theme_switcher.sh
+
 #
 # bspwm hotkeys
 #
@@ -84,14 +87,18 @@ super + {o,i}
 # focus or send to the given desktop
 #super + {_,shift + }{1-9,0}
 #	bspc {desktop -f,node -d} '^{1-9,10}'
+{{- if eq .chezmoi.hostname "workstation" }}
 super + {_,shift +}{1-9,0}
   { bspc desktop --focus \
   , bspc node --to-desktop \
   } {web, term, mail, calendar, 5, 6, 7, 8, discord, slack}
-super + {-, shift +}{ampersand,eacute,quotedbl,apostrophe,parenleft,section,egrave,exclam,ccedilla,agrave}
+{{- end }}
+{{- if eq .chezmoi.hostname "laptop" }}
+super + {_, shift +}{ampersand,eacute,quotedbl,apostrophe,parenleft,section,egrave,exclam,ccedilla,agrave}
   { bspc desktop --focus \
   , bspc node --to-desktop \
   } {web, term, mail, calendar, 5, 6, 7, 8, discord, slack}
+{{- end }}
 
 #
 # preselect
