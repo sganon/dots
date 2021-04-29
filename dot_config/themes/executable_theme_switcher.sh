@@ -9,7 +9,7 @@ elif [[ "$current" == "light" ]]; then
     next="dark"
 fi
 
-~/.config/themes/theme_toggle.sh $next
+~/.config/themes/vim_theme_toggle.sh $next
 ~/.config/themes/gtk-theme-toggle.sh $next
 alacritty-theme-switch -s $next.yaml
 
