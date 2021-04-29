@@ -10,6 +10,7 @@ elif [[ "$current" == "light" ]]; then
 fi
 
 ~/.config/themes/vim_theme_toggle.sh $next
+~/.config/themes/neovim_reload.py
 ~/.config/themes/gtk-theme-toggle.sh $next
 alacritty-theme-switch -s $next.yaml
 
