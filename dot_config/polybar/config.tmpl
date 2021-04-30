@@ -63,6 +63,7 @@ label-font = 4
 label-padding-left = ${layout.outer-padding}
 date = %H:%M
 date-alt = %Y/%m/%d
+format-foreground = ${colors.fg}
 
 [module/battery]
 type = internal/battery
@@ -75,8 +76,10 @@ format-full = <label-full>
 label-full = %percentage%%
 label-charging-font = 4
 format-charging = <ramp-capacity> <label-charging>
+format-charging-foreground = ${colors.fg}
 label-charging = ﮣ %percentage%%
 format-discharging = <ramp-capacity> <label-discharging>
+format-discharging-foreground = ${colors.fg}
 label-discharging = %percentage%%
 label-discharging-font = 4
 ramp-capacity-0 = 
@@ -96,6 +99,7 @@ interval = 5
 click-left = networkmanager_dmenu &
 click-middle = networkmanager_dmenu &
 click-right = networkmanager_dmenu &
+format-foreground = ${colors.fg}
 
 [module/network-icon]
 type = custom/script
@@ -104,6 +108,7 @@ label-padding-right = ${layout.inter-padding}
 label-font = 2
 tail = true
 interval = 5
+format-foreground = ${colors.fg}
 
 
 [module/bspwm]
@@ -133,6 +138,7 @@ label-focused-foreground = ${colors.orange}
 label-occupied = %icon%
 label-occupied-font = 2
 label-occupied-padding = ${layout.inter-padding}
+label-occupied-foreground = ${colors.fg}
 
 label-urgent = %icon%
 label-urgent-font = 3
@@ -154,7 +160,9 @@ label-muted = %percentage%%
 #label-muted-foreground = ${colors.red}
 label-muted-padding-left = ${layout.outer-padding}
 format-volume = <ramp-volume> <label-volume>
+format-volume-foreground = ${colors.fg}
 format-muted = <ramp-volume> <label-muted>
+format-muted-foreground = ${colors.fg}
 format-volume-padding-right = ${layout.outer-padding}
 format-muted-padding-right = ${layout.outer-padding}
 ramp-volume-0 = 
@@ -165,6 +173,7 @@ ramp-volume-2 = 
 type = internal/memory
 interval = 1
 format = <label>
+format-foreground = ${colors.fg}
 label =  %percentage_used%%
 label-padding-left = ${layout.outer-padding}
 label-padding-right = ${layout.outer-padding}
@@ -174,6 +183,7 @@ label-font = 4
 type = internal/cpu
 interval = 1
 format = <label>
+format-foreground = ${colors.fg}
 label =  %percentage%%
 label-padding-left = ${layout.outer-padding}
 label-font = 4
@@ -184,6 +194,7 @@ mount-0 = /
 interval = 10
 fixed-values = true
 format-mounted = <label-mounted>
+format-mounted-foreground = ${colors.fg}
 label-mounted =  %percentage_used%%
 label-mounted-font = 4
 label-mounted-padding-right = ${layout.outer-padding}
