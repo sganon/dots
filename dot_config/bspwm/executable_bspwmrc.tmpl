@@ -6,7 +6,7 @@ gnome-keyring-daemon --start --components=pkcs11 &
 setxkbmap -layout fr
 {{- end}}
 {{- if eq .chezmoi.hostname "workstation" }}
-setxkbmap -layout gb -option compose:caps
+setxkbmap -layout us -option compose:caps
 {{- end}}
 sxhkd &
 dunst &

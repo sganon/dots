@@ -18,6 +18,7 @@ call plug#begin('~/.local/share/nvim/site/plugged')
     Plug 'NLKNguyen/papercolor-theme'
     Plug 'vimsence/vimsence'
     Plug 'ayu-theme/ayu-vim'
+    Plug 'sebdah/vim-delve'
 call plug#end()
 
 "if filereadable(expand("~/.vimrc_background"))
