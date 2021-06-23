@@ -63,3 +63,5 @@
   (add-hook 'go-mode-hook
             (lambda ()
               (add-hook 'after-save-hook 'gofmt nil 'make-it-local))))
+
+(use-package! lsp-tailwindcss)
