@@ -3,7 +3,7 @@ window:
     x: 5
     'y': 5
   decorations: full
-  startup_mode: Maximized
+  startup_mode: Fullscreen
 font:
   normal:
     family: JetBrainsMono Nerd Font
