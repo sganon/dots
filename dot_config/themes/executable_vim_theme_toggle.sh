@@ -2,7 +2,7 @@
 variant=$1
 
 if [[ "$variant" == "dark" ]];then
-    variant="mirage"
+    variant="dark"
 fi
 
 echo "set termguicolors" > ~/.config/nvim/theme.vim
