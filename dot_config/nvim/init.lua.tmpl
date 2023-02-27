@@ -11,6 +11,7 @@ require("catppuccin").setup({
     	},
 })
 
+{{ if eq .chezmoi.os "darwin" }}
 local dn = require('dark_notify')
 dn.run({
     schemes = {
@@ -24,6 +25,9 @@ dn.run({
       }
     },
 })
+{{ else }}
+vim.cmd.colorscheme("catppuccin-mocha")
+{{ end }}
 
 
 function map(mode, lhs, rhs, opts)
@@ -34,7 +38,7 @@ function map(mode, lhs, rhs, opts)
     vim.api.nvim_set_keymap(mode, lhs, rhs, options)
 end
 
-require('horloge_nvim')
+-- require('horloge_nvim')
 
 -- Telescope
 local actions = require('telescope.actions')
