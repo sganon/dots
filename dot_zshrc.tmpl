@@ -1,0 +1,18 @@
+source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+{{ if eq .chezmoi.os "darwin" }}
+eval "$(~/homebrew/bin/brew shellenv)"
+{{ end }}
+
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+
+{{ if eq .chezmoi.os "darwin" }}
+export PATH="/Users/sganon/homebrew/opt/postgresql@15/bin:$HOME/Library/Python/3.9/bin:$PATH"
+{{ end }}
+export PATH=$PATH:$(yarn global bin):$HOME/go/bin
+export GOPRIVATE=git.y2m.io
+
+source ~/.aliasrc
