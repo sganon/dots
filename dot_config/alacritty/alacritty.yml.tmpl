@@ -9,13 +9,25 @@ window:
   decorations: full
 font:
   normal:
+{{ if eq .chezmoi.os "darwin" }}
     family: DejaVuSansMono Nerd Font Mono
+{{ else }}
+    family: DejaVuSansM Nerd Font Mono
+{{ end }}
     style: Book
   bold:
+{{ if eq .chezmoi.os "darwin" }}
     family: DejaVuSansMono Nerd Font Mono
+{{ else }}
+    family: DejaVuSansM Nerd Font Mono
+{{ end }}
     style: Bold
   italic:
+{{ if eq .chezmoi.os "darwin" }}
     family: DejaVuSansMono Nerd Font Mono
+{{ else }}
+    family: DejaVuSansM Nerd Font Mono
+{{ end }}
     style: Oblique
   size: 14
 live_config_reload: true
