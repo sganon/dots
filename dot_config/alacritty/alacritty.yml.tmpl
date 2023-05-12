@@ -1,0 +1,222 @@
+import:
+  - ~/.config/alacritty/catppuccin/catppuccin-mocha.yml
+env:
+  TERM: xterm-256color
+window:
+  padding:
+    x: 8
+    'y': 1
+  decorations: full
+font:
+  normal:
+    family: DejaVuSansMono Nerd Font Mono
+    style: Book
+  bold:
+    family: DejaVuSansMono Nerd Font Mono
+    style: Bold
+  italic:
+    family: DejaVuSansMono Nerd Font Mono
+    style: Oblique
+  size: 14
+live_config_reload: true
+shell:
+  program: /bin/zsh
+  args:
+    - '-l'
+    - '-c'
+{{ if eq .chezmoi.os "darwin" }}
+    - /Users/sganon/homebrew/bin/tmux attach || tmux
+{{ else }}
+    - /usr/bin/tmux attach || tmux
+{{ end }}
+{{ if eq .chezmoi.os "darwin" }}
+key_bindings:
+  - key: K
+    mods: Command
+    mode: ~Vi|~Search
+    chars: "\f"
+  - key: K
+    mods: Command
+    mode: ~Vi|~Search
+    action: ClearHistory
+  - key: Key0
+    mods: Command
+    action: ResetFontSize
+  - key: Equals
+    mods: Command
+    action: IncreaseFontSize
+  - key: Plus
+    mods: Command
+    action: IncreaseFontSize
+  - key: NumpadAdd
+    mods: Command
+    action: IncreaseFontSize
+  - key: Minus
+    mods: Command
+    action: DecreaseFontSize
+  - key: NumpadSubtract
+    mods: Command
+    action: DecreaseFontSize
+  - key: V
+    mods: Command
+    action: Paste
+  - key: C
+    mods: Command
+    action: Copy
+  - key: C
+    mods: Command
+    mode: Vi|~Search
+    action: ClearSelection
+  - key: H
+    mods: Command
+    action: Hide
+  - key: H
+    mods: Command|Alt
+    action: HideOtherApplications
+  - key: M
+    mods: Command
+    action: Minimize
+  - key: Q
+    mods: Command
+    action: Quit
+  - key: W
+    mods: Command
+    action: Quit
+  - key: 'N'
+    mods: Command
+    action: SpawnNewInstance
+  - key: F
+    mods: Command|Control
+    action: ToggleFullscreen
+  - key: F
+    mods: Command
+    mode: ~Search
+    action: SearchForward
+  - key: B
+    mods: Command
+    mode: ~Search
+    action: SearchBackward
+  - key: E
+    mods: Command
+    chars: "\ee"
+{{ end }}
+colors:
+  primary:
+    background: '#1E1E2E'
+    foreground: '#CDD6F4'
+    dim_foreground: '#CDD6F4'
+    bright_foreground: '#CDD6F4'
+  cursor:
+    text: '#1E1E2E'
+    cursor: '#F5E0DC'
+  vi_mode_cursor:
+    text: '#1E1E2E'
+    cursor: '#B4BEFE'
+  search:
+    matches:
+      foreground: '#1E1E2E'
+      background: '#A6ADC8'
+    focused_match:
+      foreground: '#1E1E2E'
+      background: '#A6E3A1'
+    footer_bar:
+      foreground: '#1E1E2E'
+      background: '#A6ADC8'
+  hints:
+    start:
+      foreground: '#1E1E2E'
+      background: '#F9E2AF'
+    end:
+      foreground: '#1E1E2E'
+      background: '#A6ADC8'
+  selection:
+    text: '#1E1E2E'
+    background: '#F5E0DC'
+  normal:
+    black: '#45475A'
+    red: '#F38BA8'
+    green: '#A6E3A1'
+    yellow: '#F9E2AF'
+    blue: '#89B4FA'
+    magenta: '#F5C2E7'
+    cyan: '#94E2D5'
+    white: '#BAC2DE'
+  bright:
+    black: '#585B70'
+    red: '#F38BA8'
+    green: '#A6E3A1'
+    yellow: '#F9E2AF'
+    blue: '#89B4FA'
+    magenta: '#F5C2E7'
+    cyan: '#94E2D5'
+    white: '#A6ADC8'
+  dim:
+    black: '#45475A'
+    red: '#F38BA8'
+    green: '#A6E3A1'
+    yellow: '#F9E2AF'
+    blue: '#89B4FA'
+    magenta: '#F5C2E7'
+    cyan: '#94E2D5'
+    white: '#BAC2DE'
+  indexed_colors:
+    - index: 16
+      color: '#FE640B'
+    - index: 17
+      color: '#DC8A78'
+    - index: 16
+      color: '#FAB387'
+    - index: 17
+      color: '#F5E0DC'
+    - index: 16
+      color: '#FAB387'
+    - index: 17
+      color: '#F5E0DC'
+    - index: 16
+      color: '#FE640B'
+    - index: 17
+      color: '#DC8A78'
+    - index: 16
+      color: '#FAB387'
+    - index: 17
+      color: '#F5E0DC'
+    - index: 16
+      color: '#FAB387'
+    - index: 17
+      color: '#F5E0DC'
+    - index: 16
+      color: '#FE640B'
+    - index: 17
+      color: '#DC8A78'
+    - index: 16
+      color: '#FAB387'
+    - index: 17
+      color: '#F5E0DC'
+    - index: 16
+      color: '#FE640B'
+    - index: 17
+      color: '#DC8A78'
+    - index: 16
+      color: '#FAB387'
+    - index: 17
+      color: '#F5E0DC'
+    - index: 16
+      color: '#FE640B'
+    - index: 17
+      color: '#DC8A78'
+    - index: 16
+      color: '#FAB387'
+    - index: 17
+      color: '#F5E0DC'
+    - index: 16
+      color: '#FAB387'
+    - index: 17
+      color: '#F5E0DC'
+    - index: 16
+      color: '#FE640B'
+    - index: 17
+      color: '#DC8A78'
+    - index: 16
+      color: '#FAB387'
+    - index: 17
+      color: '#F5E0DC'
