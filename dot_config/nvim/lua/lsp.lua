@@ -99,6 +99,7 @@ local servers = {
 	'pyright',
 	'rust_analyzer',
 	'tsserver',
+	'tailwindcss',
 	'rust_analyzer',
 	'terraformls',
 	'golangci_lint_ls',
