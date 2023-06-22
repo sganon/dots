@@ -31,7 +31,9 @@ require('packer').startup(function(use)
 		}
 	}
 
+	-- themes
 	use { "catppuccin/nvim", as = "catppuccin" }
+	use { 'sthendev/mariana.vim', run='make' }
 
 	use {
 		'nvim-telescope/telescope.nvim', tag = '0.1.1',
