@@ -11,10 +11,11 @@ font:
   normal:
 {{ if eq .chezmoi.os "darwin" }}
     family: JetBrainsMono Nerd Font Mono
+    style: Regular
 {{ else }}
     family: DejaVuSansM Nerd Font Mono
-{{ end }}
     style: Book
+{{ end }}
   bold:
 {{ if eq .chezmoi.os "darwin" }}
     family: JetBrainsMono Nerd Font Mono
