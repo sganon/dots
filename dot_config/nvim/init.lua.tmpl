@@ -6,51 +6,53 @@ vim.wo.relativenumber = true
 
 require("catppuccin").setup({
 	background = {
-        	light = "latte",
-        	dark = "mocha",
-    	},
+		light = "latte",
+		dark = "frappe",
+	},
 })
+
 
 {{ if eq .chezmoi.os "darwin" }}
 local dn = require('dark_notify')
 dn.run({
-    schemes = {
-      dark  = {
-	      colorscheme = "mariana",
-      },
-      light = {
-	      colorscheme = "catppuccin-latte",
-	      background = "light",
-      }
-    },
-})
+		schemes = {
+		dark  = {
+		colorscheme = "catppuccin-frappe",
+		background = "dark",
+		},
+		light = {
+		colorscheme = "catppuccin-latte",
+		background = "light",
+		}
+		},
+		})
 {{ else }}
 vim.cmd.colorscheme("catppuccin-mocha")
 {{ end }}
 
 
 function map(mode, lhs, rhs, opts)
-    local options = { noremap = true }
-    if opts then
-        options = vim.tbl_extend("force", options, opts)
-    end
-    vim.api.nvim_set_keymap(mode, lhs, rhs, options)
-end
+	local options = { noremap = true }
+	if opts then
+	options = vim.tbl_extend("force", options, opts)
+	end
+vim.api.nvim_set_keymap(mode, lhs, rhs, options)
+	end
 
--- require('horloge_nvim')
+	-- require('horloge_nvim')
 
--- Telescope
-local actions = require('telescope.actions')
-require('telescope').setup{
-  defaults = {
-    file_ignore_patterns = {"./node_modules/*", "node_modules", "^node_modules/*", "node_modules/*"},
-    mappings = {
-      n = {
-        ["q"] = actions.close
-      },
-    },
-  }
-}
+	-- Telescope
+	local actions = require('telescope.actions')
+	require('telescope').setup{
+		defaults = {
+			file_ignore_patterns = {"./node_modules/*", "node_modules", "^node_modules/*", "node_modules/*"},
+			mappings = {
+				n = {
+					["q"] = actions.close
+				},
+			},
+		}
+	}
 
 -----------------------------------------------------------
 --                    KEYBINDINGS                        --
@@ -66,4 +68,4 @@ map('n', '<leader>fg', '<cmd>Telescope live_grep<cr>')
 map('n', '<leader>fb', '<cmd>Telescope buffers<cr>')
 map('n', '<leader>fh', '<cmd>Telescope help_tags<cr>')
 
-
+require('mini.files').setup()

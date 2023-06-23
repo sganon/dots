@@ -31,9 +31,20 @@ require('packer').startup(function(use)
 		}
 	}
 
+	use {
+		'nvim-treesitter/nvim-treesitter'
+	}
+
+	use {
+		"pmizio/typescript-tools.nvim",
+		requires = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
+	}
+
+
 	-- themes
 	use { "catppuccin/nvim", as = "catppuccin" }
 	use { 'sthendev/mariana.vim', run='make' }
+	use { "kaiuri/nvim-juliana" }
 
 	use {
 		'nvim-telescope/telescope.nvim', tag = '0.1.1',
@@ -45,4 +56,6 @@ require('packer').startup(function(use)
 	use 'cormacrelf/dark-notify'
 
 	use 'shortcuts/no-neck-pain.nvim'
+
+	use 'echasnovski/mini.files'
 end)

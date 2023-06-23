@@ -92,13 +92,30 @@ lsp_defaults.capabilities,
 require('cmp_nvim_lsp').default_capabilities()
 )
 
+require("typescript-tools").setup {
+	on_attach = on_attach,
+	settings = {
+		-- spawn additional tsserver instance to calculate diagnostics on it
+		separate_diagnostic_server = true,
+		-- "change"|"insert_leave" determine when the client asks the server about diagnostic
+		publish_diagnostic_on = "insert_leave",
+		-- specify a list of plugins to load by tsserver, e.g., for support `styled-components`
+		-- (see 💅 `styled-components` support section)
+		tsserver_plugins = {},
+		-- described below
+		tsserver_format_options = {},
+		tsserver_file_preferences = {},
+	},
+}
+
+
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
 local servers = {
 	'cssls',
 	'pyright',
 	'rust_analyzer',
-	'tsserver',
+	--'tsserver',
 	'tailwindcss',
 	'rust_analyzer',
 	'terraformls',
