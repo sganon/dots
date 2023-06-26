@@ -63,21 +63,20 @@ local on_attach = function(client, bufnr)
 	buf_set_keymap('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
 	buf_set_keymap('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
 	buf_set_keymap('n', '<space>q', '<cmd>lua vim.diagnostic.setloclist()<CR>', opts)
-	buf_set_keymap('n', '<space>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
 	buf_set_keymap('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
 	buf_set_keymap('n', 'go', '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
 	buf_set_keymap('n', 'gr', '<cmd>lua LspRename()<CR>', opts)
 
 
 	-- Set some keybinds conditional on server capabilities
-	if client.resolved_capabilities.document_formatting then
-		buf_set_keymap("n", "<space>f", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
+	if client.server_capabilities.documentFormattingProvider then
+		buf_set_keymap("n", "<space>f", "<cmd>lua vim.lsp.buf.format()<CR>", opts)
 		vim.api.nvim_command [[augroup Format]]
 		vim.api.nvim_command [[autocmd! * <buffer>]]
-		vim.api.nvim_command [[autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_seq_sync()]]
+		vim.api.nvim_command [[autocmd BufWritePre <buffer> lua vim.lsp.buf.format()]]
 		vim.api.nvim_command [[augroup END]]
-	elseif client.resolved_capabilities.document_range_formatting then
-		buf_set_keymap("n", "<space>f", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
+	elseif client.server_capabilities.documentRangeFormattingProvider then
+		buf_set_keymap("n", "<space>f", "<cmd>lua vim.lsp.buf.format()<CR>", opts)
 	end
 end
 
@@ -131,26 +130,26 @@ for _, lsp in ipairs(servers) do
 	}
 end
 
-function go_org_imports(wait_ms)
-	local params = vim.lsp.util.make_range_params()
-	params.context = {only = {"source.organizeImports"}}
-	local result = vim.lsp.buf_request_sync(0, "textDocument/codeAction", params, wait_ms)
-	for cid, res in pairs(result or {}) do
-		for _, r in pairs(res.result or {}) do
-			if r.edit then
-				local enc = (vim.lsp.get_client_by_id(cid) or {}).offset_encoding or "utf-16"
-				vim.lsp.util.apply_workspace_edit(r.edit, enc)
-			end
-		end
-	end
-end
+--function go_org_imports(wait_ms)
+--	local params = vim.lsp.util.make_range_params()
+--	params.context = {only = {"source.organizeImports"}}
+--	local result = vim.lsp.buf_request_sync(0, "textDocument/codeAction", params, wait_ms)
+--	for cid, res in pairs(result or {}) do
+--		for _, r in pairs(res.result or {}) do
+--			if r.edit then
+--				local enc = (vim.lsp.get_client_by_id(cid) or {}).offset_encoding or "utf-16"
+--				vim.lsp.util.apply_workspace_edit(r.edit, enc)
+--			end
+--		end
+--	end
+--end
 
 nvim_lsp.gopls.setup {
 	cmd = {"gopls", "serve"},
 	filetypes = {"go", "gomod"},
 	root_dir = util.root_pattern("go.work", "go.mod", ".git"),
 	on_attach = on_attach,
-	capabilities = capabilities,
+	--capabilities = capabilities,
 	settings = {
 		gopls = {
 			analyses = {
@@ -217,6 +216,10 @@ nvim_lsp.diagnosticls.setup {
 			prettier = {
 				command = 'prettier',
 				args = { '--stdin-filepath', '%filename' }
+			},
+			goimports = {
+				command = 'goimports',
+				args = {'-w', '%filepath'}
 			}
 		},
 		formatFiletypes = {
@@ -239,10 +242,10 @@ nvim_lsp.diagnosticls.setup {
 
 
 
-vim.api.nvim_create_autocmd({"BufWritePre"}, {
-	pattern = {"*.go"},
-	callback = function() go_org_imports(200) end,
-})
+--vim.api.nvim_create_autocmd({"BufWritePre"}, {
+--	pattern = {"*.go"},
+--	callback = function() go_org_imports(200) end,
+--})
 
 vim.opt.completeopt = {'menuone', 'noselect', 'preview'}
 
