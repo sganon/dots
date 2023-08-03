@@ -219,7 +219,9 @@ nvim_lsp.diagnosticls.setup {
 			},
 			goimports = {
 				command = 'goimports',
-				args = {'-w', '%filepath'}
+				doesWriteToFile = true,
+				args = {'-w', '%filepath'},
+				rootPatterns = { 'go.mod', '.git' },
 			}
 		},
 		formatFiletypes = {
