@@ -14,6 +14,8 @@ local packer_bootstrap = ensure_packer()
 require('packer').startup(function(use)
 	use 'wbthomason/packer.nvim' -- Package manager
 	use 'neovim/nvim-lspconfig' -- Configurations for Nvim LSP
+	use 'wakatime/vim-wakatime'
+	use 'mattn/emmet-vim'
 
 	use {
 		'hrsh7th/nvim-cmp',

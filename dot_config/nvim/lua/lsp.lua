@@ -85,11 +85,7 @@ local lsp_defaults = nvim_lsp.util.default_config
 
 -- merge lsp default capabilities with the one provided
 -- via cmp_nvim_lsp
-lsp_defaults.capabilities = vim.tbl_deep_extend(
-'force',
-lsp_defaults.capabilities,
-require('cmp_nvim_lsp').default_capabilities()
-)
+lsp_defaults.capabilities = vim.tbl_deep_extend('force', lsp_defaults.capabilities, require('cmp_nvim_lsp').default_capabilities())
 
 require("typescript-tools").setup {
 	on_attach = on_attach,
@@ -219,7 +215,7 @@ nvim_lsp.diagnosticls.setup {
 			},
 			goimports = {
 				command = 'goimports',
-				doesWriteToFile = true,
+				--doesWriteToFile = true,
 				args = {'-w', '%filepath'},
 				rootPatterns = { 'go.mod', '.git' },
 			}
@@ -250,7 +246,6 @@ nvim_lsp.diagnosticls.setup {
 --})
 
 vim.opt.completeopt = {'menuone', 'noselect', 'preview'}
-
 local cmp = require('cmp')
 cmp.setup({
 	snippet = {
@@ -263,15 +258,27 @@ cmp.setup({
 		['<C-f>'] = cmp.mapping.scroll_docs(4),
 		['<C-Space>'] = cmp.mapping.complete(),
 		['<C-e>'] = cmp.mapping.abort(),
-		['<Tab>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+		['<Enter>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+		['<S-Tab>'] = cmp.mapping(cmp.mapping.select_prev_item(), { 'i', 'c' }),
+		['<Tab>'] = cmp.mapping(cmp.mapping.select_next_item(), { 'i', 'c' }),
 	}),
 	sources = cmp.config.sources({
 		{ name = 'nvim_lsp' },
 		{ name = 'snippy' },
-	}, {
-		{ name = 'buffer' },
-	}, {
+		{
+			name = 'buffer',
+			option = {
+				get_bufnrs = function()
+					local bufs = {}
+					for _, win in ipairs(vim.api.nvim_list_wins()) do
+						bufs[vim.api.nvim_win_get_buf(win)] = true
+					end
+					return vim.tbl_keys(bufs)
+				end
+			}
+		},
 		{ name = 'path' },
+		{ name = 'omni' },
 	}),
 	preselect = cmp.PreselectMode.None,
 	formatting = {
