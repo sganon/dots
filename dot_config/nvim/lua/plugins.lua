@@ -47,11 +47,13 @@ require('packer').startup(function(use)
 	use { "catppuccin/nvim", as = "catppuccin" }
 	use { 'sthendev/mariana.vim', run='make' }
 	use { "kaiuri/nvim-juliana" }
+	use { 'projekt0n/caret.nvim' }
 
 	use {
 		'nvim-telescope/telescope.nvim', tag = '0.1.1',
 		requires = { {'nvim-lua/plenary.nvim'} }
 	}
+	use 'gbrlsnchs/telescope-lsp-handlers.nvim'
 
 	use 'christoomey/vim-tmux-navigator'
 

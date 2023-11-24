@@ -16,3 +16,10 @@ export PATH=$PATH:$(yarn global bin):$HOME/go/bin
 export GOPRIVATE=git.y2m.io
 
 source ~/.aliasrc
+
+# bun completions
+[ -s "/Users/sganon/.bun/_bun" ] && source "/Users/sganon/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"

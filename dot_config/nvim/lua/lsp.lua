@@ -145,7 +145,7 @@ nvim_lsp.gopls.setup {
 	filetypes = {"go", "gomod"},
 	root_dir = util.root_pattern("go.work", "go.mod", ".git"),
 	on_attach = on_attach,
-	--capabilities = capabilities,
+	capabilities = capabilities,
 	settings = {
 		gopls = {
 			analyses = {
