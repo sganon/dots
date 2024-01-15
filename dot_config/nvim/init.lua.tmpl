@@ -4,30 +4,30 @@ require('lsp')
 vim.wo.number = true
 vim.wo.relativenumber = true
 
-require("catppuccin").setup({
-	background = {
-		light = "latte",
-		dark = "frappe",
-	},
-})
+-- require("catppuccin").setup({
+-- 	background = {
+-- 		light = "latte",
+-- 		dark = "frappe",
+-- 	},
+-- })
 
 
 {{ if eq .chezmoi.os "darwin" }}
 local dn = require('dark_notify')
 dn.run({
-		schemes = {
+	schemes = {
 		dark  = {
-		colorscheme = "catppuccin-frappe",
-		background = "dark",
+			colorscheme = "ayu",
+			background = "dark",
 		},
 		light = {
-		colorscheme = "catppuccin-latte",
-		background = "light",
+			colorscheme = "ayu",
+			background = "light",
 		}
-		},
-		})
+	},
+})
 {{ else }}
-vim.cmd.colorscheme("catppuccin-mocha")
+vim.cmd.colorscheme("ayu")
 {{ end }}
 
 
@@ -80,6 +80,3 @@ map('n', '<C-o>', '<C-o>zz', opts)
 map('n', '{', '{zz', opts)
 map('n', '}', '}zz', opts)
 
-
-
-require('mini.files').setup()

@@ -45,21 +45,17 @@ require('packer').startup(function(use)
 
 	-- themes
 	use { "catppuccin/nvim", as = "catppuccin" }
+	use { "Shatur/neovim-ayu" }
 	use { 'sthendev/mariana.vim', run='make' }
 	use { "kaiuri/nvim-juliana" }
 	use { 'projekt0n/caret.nvim' }
 
 	use {
-		'nvim-telescope/telescope.nvim', tag = '0.1.1',
+		'nvim-telescope/telescope.nvim', tag = '0.1.5',
 		requires = { {'nvim-lua/plenary.nvim'} }
 	}
 	use 'gbrlsnchs/telescope-lsp-handlers.nvim'
-
 	use 'christoomey/vim-tmux-navigator'
-
 	use 'cormacrelf/dark-notify'
-
 	use 'shortcuts/no-neck-pain.nvim'
-
-	use 'echasnovski/mini.files'
 end)
